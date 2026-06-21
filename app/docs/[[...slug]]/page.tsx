@@ -48,9 +48,21 @@ export async function generateMetadata(props: { params: Promise<{ slug?: string[
   if (!page) notFound();
 
   const { title, description } = page.data as unknown as PageData;
+  const slugPath = params.slug ? params.slug.join('/') : '';
 
   return {
     title,
     description,
+    openGraph: {
+      title: `${title} | rn-shadcn`,
+      description,
+      url: `/docs/${slugPath}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | rn-shadcn`,
+      description,
+    },
   };
 }

@@ -1,34 +1,45 @@
 ---
 title: Getting Started
-description: Setup expo-wind in your project with Expo SDK 56+, Uniwind, and Tailwind CSS v4.
+description: Install rn-shadcn CLI, initialize your project, and add components.
 ---
 
 # Getting Started
 
 ## Prerequisites
 
-- Node.js 18+
-- Expo SDK 56+
-- React Native 0.85.3+
+- Node.js 20+
+- Expo SDK 56+ / React Native 0.85.3+
 - Uniwind 1.9.0+
+- Tailwind CSS v4
 
-## Installation
+## Initialize
 
-```bash
-npm install uniwind tailwindcss tailwind-merge clsx tailwind-variants react-native-reanimated react-native-svg
-```
-
-Or with the exact versions used in this project:
+Run the init command in your project root:
 
 ```bash
-npm install uniwind@1.9.0 tailwindcss@4 tailwind-merge@3.0.2 clsx@2.1.1 tailwind-variants@1.0.0 react-native-reanimated@3.17.4 react-native-svg@15.11.1
+npx rn-shadcn init
 ```
+
+This creates:
+- `components.json` — configuration file with registry URL and components directory
+- `src/lib/cn.ts` — utility for merging Tailwind CSS classes
+- Installs `clsx` and `tailwind-merge`
+
+## Add Components
+
+```bash
+npx rn-shadcn add button
+npx rn-shadcn add card modal
+npx rn-shadcn add accordion dialog sheet
+```
+
+Each component is copied into `src/components/ui/` as a standalone file. You own it — modify freely. Required npm dependencies are installed automatically.
 
 ## Setup
 
-### 1. Configure Metro
+After running `init`, ensure your project has the following configuration.
 
-Create or update `metro.config.js`:
+### 1. Configure Metro
 
 ```js
 const { withUniwindConfig } = require('uniwind/metro')
@@ -110,28 +121,11 @@ Create `src/global.css` with shadcn-themed variables:
 import '../global.css'
 ```
 
-### 4. Create the cn() utility
-
-```tsx
-// src/lib/cn.ts
-import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-```
-
-### 5. Copy components
-
-Copy the `src/components/ui/` directory into your project and ensure all dependencies are installed.
-
 ## Usage
 
 ```tsx
 import { View } from 'react-native'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/cn'
 
 export default function Screen() {
   return (
@@ -144,19 +138,20 @@ export default function Screen() {
 
 ## File Structure
 
+After adding components, your project will have:
+
 ```
 src/
 ├── components/
 │   └── ui/
-│       ├── index.ts          # barrel exports
-│       ├── accordion.tsx
 │       ├── button.tsx
 │       ├── card.tsx
 │       ├── dialog.tsx
-│       └── ...               # all components
+│       └── ...               # components you added
 ├── lib/
-│   └── cn.ts                 # cn() utility
+│   └── cn.ts                 # cn() utility (created by init)
 └── global.css                # theme variables
+components.json               # rn-shadcn configuration
 ```
 
 ## Verification

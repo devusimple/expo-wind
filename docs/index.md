@@ -1,33 +1,74 @@
 ---
 title: Overview
-description: A shadcn-style reusable component library for React Native built with Uniwind + Tailwind CSS v4.
+description: A shadcn-style CLI for React Native UI components built with Uniwind + Tailwind CSS v4.
 ---
 
-# UI Components
+# rn-shadcn
 
-A shadcn-style reusable component library for React Native built with Uniwind + Tailwind CSS v4.
+A shadcn-style CLI for React Native UI components. Install pre-built components directly into your project — no wrapper library, full ownership.
 
-## Installation
-
-These components are part of the app source. Import directly from `@/components/ui/<component-name>`.
-
-```tsx
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/cn'
+```bash
+npx rn-shadcn init
+npx rn-shadcn add button
+npx rn-shadcn add card modal
 ```
 
 ## Prerequisites
 
-- Expo SDK 56+, React Native 0.85.3+, Uniwind 1.9.0+
-- `tailwind-merge`, `clsx`, `tailwind-variants` installed
-- `src/global.css` with shadcn-themed CSS variables
-- Metro configured with `withUniwindConfig` and `cssEntryFile`
+- Node.js 20+
+- Expo SDK 56+ / React Native 0.85.3+
+- Uniwind 1.9.0+
+- Tailwind CSS v4
+
+## Getting Started
+
+```bash
+npx rn-shadcn init
+```
+
+This creates:
+- `components.json` — configuration file with registry URL and components directory
+- `src/lib/cn.ts` — utility for merging Tailwind CSS classes
+- Installs `clsx` and `tailwind-merge`
+
+## Commands
+
+### `add`
+
+Install one or more components:
+
+```bash
+npx rn-shadcn add button
+npx rn-shadcn add card modal
+npx rn-shadcn add accordion dialog sheet
+```
+
+Automatically installs required npm dependencies.
+
+### `list`
+
+Show all available components:
+
+```bash
+npx rn-shadcn list
+```
+
+### `info`
+
+View component metadata:
+
+```bash
+npx rn-shadcn info button
+```
+
+## How It Works
+
+Components are downloaded from a remote GitHub Pages registry and copied into your project's `src/components/ui/` directory. You own the files — modify them freely.
 
 ## Component Docs
 
 ### Layout
 - [Accordion](./components/accordion.md) — Expandable accordion sections
-- [AspectRatio](./components/aspect-ratio.md) — Fixed-ratio container
 - [Card](./components/card.md) — Content card with header/footer slots
 - [Carousel](./components/carousel.md) — Scrollable carousel
 - [Collapsible](./components/collapsible.md) — Expand/collapse section
@@ -59,30 +100,27 @@ import { cn } from '@/lib/cn'
 - [ContextMenu](./components/context-menu.md) — Long-press menu
 - [Dialog](./components/dialog.md) — Modal dialog
 - [Drawer](./components/drawer.md) — Slide-in drawer
+- [DropdownMenu](./components/dropdown-menu.md) — Dropdown action menu
 - [HoverCard](./components/hover-card.md) — Tap-to-show card
 - [Menubar](./components/menubar.md) — Menu bar
 - [NavigationMenu](./components/navigation-menu.md) — Navigation with dropdown panels
 - [Popover](./components/popover.md) — Toggle popover
 - [Tooltip](./components/tooltip.md) — Tooltip label
 
-### Navigation
-- [Breadcrumb](./components/breadcrumb.md) — Navigation trail
-- [Command](./components/command.md) — Command palette
-- [DropdownMenu](./components/dropdown-menu.md) — Dropdown action menu
-- [Pagination](./components/pagination.md) — Page navigation
-
-### Data Display
+### Data
 - [Avatar](./components/avatar.md) — Initials avatar
 - [Badge](./components/badge.md) — Status badge
+- [Breadcrumb](./components/breadcrumb.md) — Navigation trail
 - [Calendar](./components/calendar.md) — Month calendar grid
 - [Chart](./components/chart.md) — Bar, Line, Pie, Area charts
 - [DataTable](./components/data-table.md) — Sortable data table
-- [Progress](./components/progress.md) — Progress bar
-- [Skeleton](./components/skeleton.md) — Loading skeleton
+- [Pagination](./components/pagination.md) — Page navigation
 - [Table](./components/table.md) — Semantic table layout
 
 ### Feedback
 - [Alert](./components/alert.md) — Alert banner
+- [Progress](./components/progress.md) — Progress bar
+- [Skeleton](./components/skeleton.md) — Loading skeleton
 - [Sonner](./components/sonner.md) — Global toast system
 - [Toast](./components/toast.md) — Context-based toast
 
@@ -119,3 +157,7 @@ All components:
 - Reference CSS variables (not hardcoded colors)
 - Use React Native core components (no `withUniwind` wrapping)
 - Prefer composition over configuration
+
+## License
+
+MIT

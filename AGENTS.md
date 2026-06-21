@@ -1,8 +1,8 @@
-# AGENTS.md — expo-wind docs
+# AGENTS.md — rn-shadcn docs
 
 ## What this project is
 
-A documentation website for **expo-wind**, a shadcn-style React Native component library built with Uniwind + Tailwind CSS v4. The library itself lives separately; this repo only contains the docsite source.
+A documentation website for **rn-shadcn**, a shadcn-style React Native component library built with Uniwind + Tailwind CSS v4. The library itself lives separately; this repo only contains the docsite source.
 
 ## Directory structure
 

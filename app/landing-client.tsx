@@ -252,7 +252,7 @@ function NavBar() {
     <nav className="relative z-20 mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
       <div className="flex items-center gap-2.5">
         <GradientText>
-          <h1 className='text-xl font-bold'>RNS</h1>
+          <h1 className='text-xl font-space-grotesk font-bold'>RNS</h1>
         </GradientText>
       </div>
       <div className="hidden items-center gap-7 text-sm text-zinc-400 sm:flex">

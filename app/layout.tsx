@@ -1,13 +1,22 @@
 import type { Metadata } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider/next';
-import { JetBrains_Mono } from 'next/font/google';
+import { JetBrains_Mono, Fira_Code, Space_Grotesk } from 'next/font/google';
 import { SettingsProvider } from '@/lib/settings-context';
+import { cn } from '@/lib/cn';
 import './global.css';
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
 });
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code'
+});
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk'
+})
 
 export const metadata: Metadata = {
   title: {
@@ -43,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
+    <html lang="en" className={cn(jetbrainsMono.variable, firaCode.variable, spaceGrotesk.variable)} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <RootProvider>
           <SettingsProvider>
@@ -51,6 +60,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </SettingsProvider>
         </RootProvider>
       </body>
-    </html>//
+    </html>
   );
 }

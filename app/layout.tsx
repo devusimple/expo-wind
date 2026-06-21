@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description:
     'shadcn-style React Native components built with Uniwind and Tailwind CSS v4. Copy, paste, and customize — no black-box dependencies.',
-  metadataBase: new URL('https://rn-shadcn.com'),
+  metadataBase: new URL('https://rn-shadcn.vercel.app'),
   openGraph: {
     title: 'rn-shadcn — shadcn/ui, made for touch',
     description:
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: '/logo-120x60.png',
-    apple: '/logo-120x60.png',
+    icon: '/logo-512x512.jpg',
+    apple: '/logo-512x512.jpg',
   },
 };
 
@@ -51,6 +51,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </SettingsProvider>
         </RootProvider>
       </body>
-    </html>
+    </html>//
   );
 }

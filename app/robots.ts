@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://rn-shadcn.com/sitemap.xml',
+    sitemap: 'https://rn-shadcn.vercel.app/sitemap.xml',
   };
 }

@@ -2,7 +2,7 @@ import { source } from '@/lib/source';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rn-shadcn.com';
+  const baseUrl = 'https://rn-shadcn.vercel.app';
 
   const docsParams = source.generateParams();
 

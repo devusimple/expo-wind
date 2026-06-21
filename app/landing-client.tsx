@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import React, { useEffect, useRef, useState } from 'react';
 
-const LOGO_SRC = '/image.png';
+const LOGO_SRC = '/logo-512x512.png';
 
 const COMPONENTS_PREVIEW = [
   { name: 'Button', tag: '<Button variant="default" />' },
@@ -175,7 +175,7 @@ function PhoneMockup() {
         }}
       />
       <div
-        className="relative h-[540px] w-[260px] rounded-[2.4rem] border border-zinc-800 bg-zinc-950 shadow-2xl"
+        className="relative h-135 w-65 rounded-[2.4rem] border border-zinc-800 bg-zinc-950 shadow-2xl"
         style={{
           transform: 'rotateY(-8deg) rotateX(2deg)',
           boxShadow:
@@ -240,13 +240,9 @@ function Logo({ size = 28 }: { size?: number }) {
       style={{
         width: size,
         height: size,
-        background: 'linear-gradient(135deg, #6366F1 0%, #818CF8 60%, #C7D2FE 100%)',
-        color: '#09090B',
-        fontSize: size * 0.5,
-        boxShadow: '0 0 16px rgba(99,102,241,0.5)',
       }}
     >
-      <Image src={"./logo-120x6.png"} alt='Logo' className='w-12 object-contain' />
+      <Image src={LOGO_SRC} width={0} height={0} alt='Logo' className='w-12 object-contain' />
     </div>
   );
 }
@@ -255,8 +251,9 @@ function NavBar() {
   return (
     <nav className="relative z-20 mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
       <div className="flex items-center gap-2.5">
-        <Logo />
-        <span className="font-semibold tracking-tight text-zinc-100">rn-shadcn</span>
+        <GradientText>
+          <h1 className='text-xl font-bold'>RNS</h1>
+        </GradientText>
       </div>
       <div className="hidden items-center gap-7 text-sm text-zinc-400 sm:flex">
         <a href="#components" className="transition-colors hover:text-zinc-100">
@@ -271,9 +268,9 @@ function NavBar() {
       </div>
       <a
         href="https://github.com/devusimple/rn-shadcn.git"
-        className="rounded-lg border border-zinc-700 px-4 py-1.5 font-mono text-sm text-zinc-200 transition-colors hover:border-zinc-500 hover:bg-zinc-900"
+        className="rounded-lg flex items-center gap-2 border border-zinc-700 px-4 py-1.5 font-mono text-sm text-zinc-200 transition-colors hover:border-zinc-500 hover:bg-zinc-900"
       >
-        <svg role="img" className='w-6 h-6' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+        <svg role="img" className='w-5 h-5' fill='#fff' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
         GitHub
       </a>
     </nav>
@@ -300,7 +297,7 @@ function Hero() {
   return (
     <section className="relative mx-auto grid max-w-6xl items-center gap-16 px-6 pb-24 pt-12 md:grid-cols-2">
       <div
-        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[900px] -translate-x-1/2"
+        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-150 w-225 -translate-x-1/2"
         style={{
           background: 'radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 60%)',
           filter: 'blur(40px)',
@@ -480,7 +477,7 @@ function Footer() {
   return (
     <footer className="relative mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-zinc-900 px-6 py-10 sm:flex-row">
       <div className="flex items-center gap-2.5">
-        <Logo size={22} />
+        <Logo size={32} />
         <span className="text-sm text-zinc-500">rn-shadcn — MIT licensed</span>
       </div>
       <div className="font-mono text-xs text-zinc-600">v0.4 · built on Uniwind + Tailwind v4</div>
@@ -488,181 +485,9 @@ function Footer() {
   );
 }
 
-function ConvergingLines() {
-  const lines = [
-    { x1: '2%', y1: '15%', x2: '50%', y2: '50%', delay: 0, dur: 4.5 },
-    { x1: '98%', y1: '20%', x2: '50%', y2: '50%', delay: 0.6, dur: 5.2 },
-    { x1: '5%', y1: '85%', x2: '50%', y2: '50%', delay: 1.2, dur: 4.8 },
-    { x1: '95%', y1: '82%', x2: '50%', y2: '50%', delay: 0.3, dur: 5.6 },
-    { x1: '50%', y1: '2%', x2: '50%', y2: '50%', delay: 1.8, dur: 4.2 },
-    { x1: '50%', y1: '98%', x2: '50%', y2: '50%', delay: 0.9, dur: 5.0 },
-    { x1: '12%', y1: '50%', x2: '50%', y2: '50%', delay: 1.5, dur: 4.7 },
-    { x1: '88%', y1: '50%', x2: '50%', y2: '50%', delay: 2.1, dur: 5.4 },
-  ];
-
-  return (
-    <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="none" style={{ mixBlendMode: 'screen' }}>
-      <defs>
-        <linearGradient id="splashLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#6366F1" stopOpacity="0" />
-          <stop offset="50%" stopColor="#A5B4FC" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {lines.map((l, i) => (
-        <line
-          key={i}
-          x1={l.x1}
-          y1={l.y1}
-          x2={l.x2}
-          y2={l.y2}
-          stroke="url(#splashLineGrad)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          style={{
-            strokeDasharray: '14 220',
-            animation: `travelLine ${l.dur}s linear ${l.delay}s infinite`,
-          }}
-        />
-      ))}
-    </svg>
-  );
-}
-
-function OrbitRings() {
-  return (
-    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-      {[220, 340, 460].map((size, i) => (
-        <div
-          key={size}
-          className="absolute rounded-full border"
-          style={{
-            width: size,
-            height: size,
-            borderColor: 'rgba(165,180,252,0.12)',
-            animation: `spinSlow ${22 + i * 8}s linear infinite ${i % 2 ? 'reverse' : 'normal'}`,
-          }}
-        >
-          <div
-            className="absolute left-1/2 top-0 -ml-[3px] -mt-[3px] size-1.5 rounded-full"
-            style={{
-              background: '#A5B4FC',
-              boxShadow: '0 0 12px 3px rgba(165,180,252,0.7)',
-            }}
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function SplashScreen({ onDone }: { onDone: () => void }) {
-  const [exiting, setExiting] = useState(false);
-  const [showSkip, setShowSkip] = useState(false);
-
-  useEffect(() => {
-    const skipTimer = setTimeout(() => setShowSkip(true), 900);
-    const autoTimer = setTimeout(() => handleDismiss(), 3200);
-    return () => {
-      clearTimeout(skipTimer);
-      clearTimeout(autoTimer);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function handleDismiss() {
-    setExiting(true);
-    setTimeout(onDone, 550);
-  }
-
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden"
-      style={{
-        background: '#09090B',
-        opacity: exiting ? 0 : 1,
-        transform: exiting ? 'scale(1.04)' : 'scale(1)',
-        transition: 'opacity 0.55s ease, transform 0.55s ease',
-        pointerEvents: exiting ? 'none' : 'auto' as React.CSSProperties['pointerEvents'],
-      }}
-    >
-      <div
-        className="pointer-events-none absolute -inset-32"
-        style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(99,102,241,0.35) 0%, rgba(99,102,241,0.08) 35%, transparent 65%)',
-          filter: 'blur(60px)',
-          animation: 'drift 14s ease-in-out infinite',
-        }}
-      />
-
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-          backgroundSize: '56px 56px',
-          maskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 70%)',
-          WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 70%)',
-        }}
-      />
-
-      <ConvergingLines />
-      <OrbitRings />
-
-      <div className="relative z-10 flex flex-col items-center px-6">
-        <div className="relative mb-8" style={{ animation: 'logoPulse 4s ease-in-out infinite' }}>
-          <div
-            className="pointer-events-none absolute -inset-10 rounded-full"
-            style={{
-              background: 'radial-gradient(circle, rgba(165,180,252,0.4) 0%, transparent 70%)',
-              filter: 'blur(24px)',
-            }}
-          />
-          <img
-            src={LOGO_SRC}
-            alt="rn-shadcn"
-            className="relative h-auto w-32 sm:w-40"
-            draggable={false}
-          />
-        </div>
-
-        <div style={{ animation: 'fadeUp 0.8s cubic-bezier(.16,1,.3,1) 0.3s both' }}>
-          <p className="text-center font-mono text-sm uppercase tracking-widest text-zinc-500">
-            shadcn/ui, made for touch
-          </p>
-        </div>
-      </div>
-
-      <button
-        onClick={handleDismiss}
-        className="absolute bottom-8 right-8 rounded-full border border-zinc-800 px-3.5 py-1.5 font-mono text-xs text-zinc-500 transition-all duration-300 hover:border-zinc-600 hover:text-zinc-300"
-        style={{
-          opacity: showSkip ? 1 : 0,
-          transform: showSkip ? 'translateY(0)' : 'translateY(6px)',
-          transition: 'opacity 0.4s ease, transform 0.4s ease, color 0.2s, border-color 0.2s',
-        }}
-      >
-        Skip →
-      </button>
-
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: 'radial-gradient(circle at 50% 50%, transparent 30%, #09090B 90%)',
-        }}
-      />
-    </div>
-  );
-}
-
 export default function LandingPage() {
-  const [splashDone, setSplashDone] = useState(false);
-  const handleSplashDone = useCallback(() => setSplashDone(true), []);
-
   return (
     <>
-      {!splashDone && <SplashScreen onDone={handleSplashDone} />}
-
       <div
         className="min-h-screen w-full overflow-x-hidden"
         style={{

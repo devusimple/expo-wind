@@ -33,3 +33,14 @@ html > body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
 }
+
+code, pre, .shiki, .shiki code {
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace);
+}
+
+html[data-code-wrap='true'] figure.shiki > div > pre,
+html[data-code-wrap='true'] figure.shiki code {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  width: 100% !important;
+}

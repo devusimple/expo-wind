@@ -1,0 +1,191 @@
+---
+title: Overview
+description: A shadcn-style CLI for React Native UI components built with Uniwind + Tailwind CSS v4.
+---
+
+# rn-shadcn
+
+A shadcn-style CLI for React Native UI components. Install pre-built components directly into your project — no wrapper library, full ownership.
+
+```bash
+npx rn-shadcn init
+npx rn-shadcn add button
+npx rn-shadcn add card modal
+# or
+bunx rn-shadcn init
+pnpm rn-shadcn add button
+```
+
+## Prerequisites
+
+- Node.js 20+
+- Expo SDK 56+ / React Native 0.85.3+
+
+Uniwind 1.9.0+ and Tailwind CSS v4 are installed automatically by `init`.
+
+## Getting Started
+
+```bash
+npx rn-shadcn init
+# or
+bunx rn-shadcn init
+# or
+pnpm rn-shadcn init
+```
+
+The init command:
+1. Installs Uniwind + Tailwind CSS v4 (if missing)
+2. Configures Metro for Uniwind
+3. Prompts you to choose a theme from 8 presets
+4. Creates `global.css` with the selected theme's CSS variables
+5. Creates `src/lib/cn.ts` — utility for merging Tailwind CSS classes
+6. Installs `clsx` and `tailwind-merge`
+7. Creates `components.json` — configuration file with registry URL and component directory
+
+## Commands
+
+### `add`
+
+Install one or more components:
+
+```bash
+npx rn-shadcn add button
+npx rn-shadcn add card modal
+npx rn-shadcn add accordion dialog sheet
+# or
+bunx rn-shadcn add button
+# or
+pnpm rn-shadcn add button
+```
+
+Automatically installs required npm dependencies.
+
+### `list`
+
+Show all available components:
+
+```bash
+npx rn-shadcn list
+```
+
+### `info`
+
+View component metadata:
+
+```bash
+npx rn-shadcn info button
+```
+
+## How It Works
+
+Components are downloaded from a remote GitHub Pages registry and copied into your project's `src/components/ui/` directory. You own the files — modify them freely.
+
+## Component Docs
+
+### Layout
+- [Accordion](./components/accordion.md) — Expandable accordion sections
+- [Card](./components/card.md) — Content card with header/footer slots
+- [Carousel](./components/carousel.md) — Scrollable carousel
+- [Collapsible](./components/collapsible.md) — Expand/collapse section
+- [Resizable](./components/resizable.md) — Drag-to-resize panes
+- [ScrollArea](./components/scroll-area.md) — Scrollable content area
+- [Separator](./components/separator.md) — Horizontal/vertical divider
+- [Sheet](./components/sheet.md) — Slide-in panel
+- [Tabs](./components/tabs.md) — Tabbed content panels
+
+### Forms
+- [Button](./components/button.md) — Pressable button with variants
+- [Checkbox](./components/checkbox.md) — Checkbox input
+- [Combobox](./components/combobox.md) — Searchable select
+- [DatePicker](./components/date-picker.md) — Date selection
+- [Form](./components/form.md) — Form with validation state
+- [Input](./components/input.md) — Text input with label/error
+- [InputOTP](./components/input-otp.md) — OTP digit input
+- [Label](./components/label.md) — Form label
+- [RadioGroup](./components/radio-group.md) — Radio button group
+- [Select](./components/select.md) — Modal-based option picker
+- [Slider](./components/slider.md) — Drag slider
+- [Switch](./components/switch.md) — Toggle switch
+- [Textarea](./components/textarea.md) — Multiline text input
+- [Toggle](./components/toggle.md) — Toggle button
+- [ToggleGroup](./components/toggle-group.md) — Toggle button group
+
+### Overlays
+- [AlertDialog](./components/alert-dialog.md) — Confirmation dialog
+- [ContextMenu](./components/context-menu.md) — Long-press menu
+- [Dialog](./components/dialog.md) — Modal dialog
+- [Drawer](./components/drawer.md) — Slide-in drawer
+- [DropdownMenu](./components/dropdown-menu.md) — Dropdown action menu
+- [HoverCard](./components/hover-card.md) — Tap-to-show card
+- [Menubar](./components/menubar.md) — Menu bar
+- [NavigationMenu](./components/navigation-menu.md) — Navigation with dropdown panels
+- [Popover](./components/popover.md) — Toggle popover
+- [Tooltip](./components/tooltip.md) — Tooltip label
+
+### Data
+- [Avatar](./components/avatar.md) — Initials avatar
+- [Badge](./components/badge.md) — Status badge
+- [Breadcrumb](./components/breadcrumb.md) — Navigation trail
+- [Calendar](./components/calendar.md) — Month calendar grid
+- [Chart](./components/chart.md) — Bar, Line, Pie, Area charts
+- [DataTable](./components/data-table.md) — Sortable data table
+- [Pagination](./components/pagination.md) — Page navigation
+- [Table](./components/table.md) — Semantic table layout
+
+### Feedback
+- [Alert](./components/alert.md) — Alert banner
+- [Progress](./components/progress.md) — Progress bar
+- [Skeleton](./components/skeleton.md) — Loading skeleton
+- [Sonner](./components/sonner.md) — Global toast system
+- [Toast](./components/toast.md) — Context-based toast
+
+### Typography
+- [Text](./components/text.md) — Styled Text component
+- [Typography](./components/typography.md) — H1–H6, P, Blockquote, lists, and more
+
+## Theming
+
+All components use CSS variables from `src/global.css`. The themes use Tailwind CSS v4's `@layer theme` with `@variant light` / `@variant dark` blocks and oklch color values.
+
+Available CSS variables generated by `init`:
+
+| Variable | Tailwind Class | Usage |
+|----------|---------------|-------|
+| `--color-background` | `bg-background` | Page background |
+| `--color-foreground` | `text-foreground` | Default text |
+| `--color-primary` | `bg-primary` | Primary actions |
+| `--color-primary-foreground` | `text-primary-foreground` | Text on primary |
+| `--color-secondary` | `bg-secondary` | Secondary actions |
+| `--color-secondary-foreground` | `text-secondary-foreground` | Text on secondary |
+| `--color-muted` | `bg-muted` | Muted background |
+| `--color-muted-foreground` | `text-muted-foreground` | Muted text |
+| `--color-accent` | `bg-accent` | Accent elements |
+| `--color-accent-foreground` | `text-accent-foreground` | Text on accent |
+| `--color-destructive` | `bg-destructive` | Destructive actions |
+| `--color-destructive-foreground` | `text-destructive-foreground` | Text on destructive |
+| `--color-border` | `border-border` | Borders |
+| `--color-input` | `border-input` | Form input borders |
+| `--color-ring` | `border-ring` | Focus rings |
+| `--color-card` | `bg-card` | Card background |
+| `--color-popover` | `bg-popover` | Popover background |
+| `--color-chart-1` through `--color-chart-5` | various | Chart color palette |
+| `--color-sidebar` through `--color-sidebar-ring` | various | Sidebar colors |
+
+Light and dark mode values are defined using `@variant light` / `@variant dark` blocks.
+
+### Preset Themes
+
+Choose from 8 themes when running `init`: Neutral, Blue, Amber, Cyan, Emerald, Fuchsia, Green, or Default (Minimal).
+
+## Patterns
+
+All components:
+- Accept `className` merged via `cn()` (clsx + tailwind-merge)
+- Use `tailwind-variants` for variant logic where applicable
+- Reference CSS variables (not hardcoded colors)
+- Use React Native core components (no `withUniwind` wrapping)
+- Prefer composition over configuration
+
+## License
+
+MIT

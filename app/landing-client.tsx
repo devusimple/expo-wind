@@ -313,6 +313,11 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={80}>
+          <div className="flex items-center justify-center gap-3">
+            <GradientText className='font-space-grotesk text-center'>RN-SHADCN</GradientText>
+            <span className='font-mono text-sm'>(React Native Shadcn/ui)</span>
+          </div>
+          <br />
           <h1 className="mb-6 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
             <GradientText>shadcn/ui,</GradientText>
             <br />

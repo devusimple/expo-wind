@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn(jetbrainsMono.variable, firaCode.variable, spaceGrotesk.variable)} suppressHydrationWarning>
+    <html lang="en" className={`${jetbrainsMono.variable} ${firaCode.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <RootProvider>
           <SettingsProvider>

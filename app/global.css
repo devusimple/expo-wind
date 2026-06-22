@@ -2,6 +2,14 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
+
+
+@theme inline {
+  --font-fira-code: var(--font-fira-code);
+  --font-space-grotesk: var(--font-space-grotesk);
+  --font-mono: var(--font-mono)
+}
+
 :root {
   --color-fd-background: oklch(1 0 0);
   --color-fd-foreground: oklch(0.145 0 0);
@@ -52,68 +60,153 @@ html {
 }
 
 @keyframes screenFade {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 @keyframes floatChip {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
+
 @keyframes floatChip2 {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(8px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
 }
+
 @keyframes travelLine {
-  0%   { stroke-dashoffset: 260; opacity: 0; }
-  8%   { opacity: 1; }
-  85%  { opacity: 1; }
-  100% { stroke-dashoffset: 0; opacity: 0; }
+  0% {
+    stroke-dashoffset: 260;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
 }
+
 @keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
+
 @keyframes drift {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  50%      { transform: translate(2%, -3%) scale(1.08); }
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  50% {
+    transform: translate(2%, -3%) scale(1.08);
+  }
 }
+
 @keyframes logoPulse {
-  0%, 100% { filter: drop-shadow(0 0 30px rgba(165,180,252,0.35)); }
-  50%      { filter: drop-shadow(0 0 60px rgba(165,180,252,0.65)); }
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 30px rgba(165, 180, 252, 0.35));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 60px rgba(165, 180, 252, 0.65));
+  }
 }
+
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 @keyframes reveal-in {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-* { box-sizing: border-box; }
-a:focus-visible, button:focus-visible {
+* {
+  box-sizing: border-box;
+}
+
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid #6366F1;
   outline-offset: 2px;
 }
 
-html > body[data-scroll-locked] {
+html>body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
 }
 
-code, pre, .shiki, .shiki code {
+code,
+pre,
+.shiki,
+.shiki code {
   font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace);
 }
 
-html[data-code-wrap='true'] figure.shiki > div > pre,
+html[data-code-wrap='true'] figure.shiki>div>pre,
 html[data-code-wrap='true'] figure.shiki code {
   white-space: pre-wrap !important;
   word-break: break-all !important;

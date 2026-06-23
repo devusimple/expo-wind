@@ -18,7 +18,7 @@ export default function Hero() {
                 <Reveal>
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1 font-mono text-xs text-zinc-400">
                         <span className="size-1.5 animate-pulse rounded-full bg-indigo-400" />
-                        v1.0.0 — Uniwind + Tailwind v4
+                        v1.2.0 — Uniwind + Tailwind v4
                     </div>
                 </Reveal>
 
